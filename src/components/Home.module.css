@@ -1,0 +1,244 @@
+.homeContainer {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  padding: 5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.heroTitle {
+  font-size: clamp(2.25rem, 5vw, 3rem); /* Responsive font size */
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem); /* Responsive font size */
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.contentCard {
+  padding: 2.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contentCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.primaryButton {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.primaryButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.primaryButton:hover::after {
+  transform: translateX(0);
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+}
+
+/* Grid layout for cards */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Feature section */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.featureItem {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+  
+  .contentCard {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .homeContainer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .hero {
+    padding: 3rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+  }
+  
+  .heroTitle {
+    margin-bottom: 1rem;
+  }
+  
+  .contentCard {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cardGrid {
+    gap: 1.5rem;
+  }
+  
+  .primaryButton {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2.5rem 1rem;
+    border-radius: 10px;
+  }
+  
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+  
+  .contentCard {
+    padding: 1.25rem;
+    border-left-width: 3px;
+  }
+  
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .primaryButton {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .homeContainer {
+    animation: none;
+  }
+  
+  .hero::before {
+    animation: none;
+    opacity: 0;
+  }
+  
+  .contentCard:hover,
+  .primaryButton:hover,
+  .featureItem:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,25 @@
+.app {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 80px; /* Account for fixed header */
+}
+
+/* CSS Variables fallbacks */
+:root {
+  --primary: #3182ce;
+  --background: #ffffff;
+  --text: #2d3748;
+  --card-bg: #f8f9fa;
+  --border-radius: 0.5rem;
+  --font-family: system-ui, sans-serif;
+}
